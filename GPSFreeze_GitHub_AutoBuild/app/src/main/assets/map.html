@@ -1,0 +1,7 @@
+<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>html,body,#map{height:100%;margin:0}#notice{position:absolute;z-index:1000;top:8px;left:8px;background:white;padding:6px;font:12px sans-serif}</style></head>
+<body><div id="map"></div><div id="notice">Tap map to select location (internet required)</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>if(window.L){let m=L.map('map').setView([29.801,76.399],11);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:19}).addTo(m);let pin; m.on('click',function(e){if(pin)m.removeLayer(pin);pin=L.marker(e.latlng).addTo(m);Picker.picked(e.latlng.lat.toFixed(6),e.latlng.lng.toFixed(6));});}else{document.getElementById('notice').innerText='Map unavailable. Enter coordinates above.';}</script>
+</body></html>
